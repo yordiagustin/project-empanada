@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                 x:Class="Empanada.Views.OkPopupPage"
+                 xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
+    <ContentPage.Content>
+    </ContentPage.Content>
+    
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <Frame
+        BackgroundColor="White"
+        VerticalOptions="EndAndExpand" 
+        HorizontalOptions="Center" 
+        Padding="40,20"
+        Margin="30,0"
+        CornerRadius="20">
+        
+        <StackLayout>
+           
+             <forms:AnimationView
+                 x:Name="LottieView" 
+                 Animation="green.json" 
+                 Loop="true" 
+                 AutoPlay="True"
+                 PlaybackStartedCommand="{Binding PlayingCommand}"
+                 PlaybackFinishedCommand="{Binding FinishedCommand}"
+                 VerticalOptions="Start"
+                 HorizontalOptions="FillAndExpand"
+                HeightRequest="200"/>
+            
+            <Label x:Name="Tag" Text="Perfect" TextColor="Green" FontSize="30" HorizontalTextAlignment="Center"/>
+            <Label x:Name="DescriptionLabel" Text="We recommend you do not touch anything and get out of there" TextColor="Gray" HorizontalTextAlignment="Center" FontSize="18"/>
+        </StackLayout>
+    </Frame>
+    
+</pages:PopupPage>
